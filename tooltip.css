@@ -1,0 +1,175 @@
+#github-tooltip {
+  position: fixed;
+  background-color: #2e3440;
+  color: #d8dee9;
+  padding: 12px;
+  border-radius: 6px;
+  z-index: 2147483647;
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  max-width: 450px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
+  border: 1px solid #4c566a;
+}
+
+#github-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#github-tooltip h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #88c0d0;
+}
+#github-tooltip h4 a { 
+  color: #88c0d0;
+  text-decoration: none;
+}
+#github-tooltip h4 a:hover {
+  text-decoration: underline;
+}
+
+#github-tooltip p {
+  margin-top: 0;
+  margin-bottom: 8px; /* Increased margin for paragraphs, especially the one with description */
+}
+#github-tooltip p:last-child {
+  margin-bottom: 0;
+}
+
+#github-tooltip a {
+  color: #8fbcbb;
+  text-decoration: none;
+}
+#github-tooltip a:hover {
+  text-decoration: underline;
+}
+
+#github-tooltip hr {
+  border: 0;
+  height: 1px;
+  background-color: #4c566a;
+  margin: 10px 0 8px;
+}
+
+/* Styl dla sekcji z informacjami o repo */
+.repo-details {
+  font-size: 0.8em;
+  opacity: 0.8;
+  margin-bottom: 10px; 
+}
+.repo-details img.author-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Styl dla inline tagów środowisk/technologii */
+.env-tag {
+  background-color: #3b4252; /* Slightly different from main tooltip bg for subtle distinction */
+  color: #d8dee9; /* Slightly lighter text for tags */
+  padding: 1px 5px; /* More compact padding */
+  border-radius: 3px;
+  margin: 0 3px; /* Adjust horizontal margin between tags */
+  font-size: 0.85em;   /* Slightly smaller font for tags */
+  display: inline-block;
+  line-height: 1.3; /* Ensure tags don't expand line height too much */
+  vertical-align: baseline; /* Align with surrounding text */
+  border: 1px solid #4c566a;
+  white-space: nowrap;
+}
+
+.inline-env-bracket {
+    opacity: 0.7; /* Make brackets slightly less prominent */
+    font-size: 0.9em;
+}
+
+
+/* Wskaźnik ładowania AI */
+.ai-loading-indicator {
+  font-style: italic;
+  color: #a3be8c;
+  font-size: 0.85em;
+  padding: 5px 0;
+  text-align: center;
+}
+
+/* Prosty parser Markdown (tylko podstawowe) */
+#github-tooltip .markdown-content strong, #github-tooltip .markdown-content b { font-weight: bold; }
+#github-tooltip .markdown-content em, #github-tooltip .markdown-content i { font-style: italic; }
+#github-tooltip .markdown-content ul { margin: 5px 0 5px 20px; padding-left: 0; list-style-type: disc; }
+#github-tooltip .markdown-content ol { margin: 5px 0 5px 20px; padding-left: 0; list-style-type: decimal; }
+#github-tooltip .markdown-content li { margin-bottom: 3px; }
+#github-tooltip .markdown-content code {
+    background-color: #434c5e;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9em;
+}
+
+/* Przyciski akcji */
+.tooltip-actions {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #4c566a;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tooltip-actions button, .tooltip-actions a.action-button {
+  background-color: #434c5e;
+  color: #eceff4;
+  border: 1px solid #4c566a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.tooltip-actions button:hover, .tooltip-actions a.action-button:hover {
+  background-color: #4c566a;
+  border-color: #5e81ac;
+}
+.tooltip-actions button::before, .tooltip-actions a.action-button::before {
+  margin-right: 4px;
+  font-size: 0.9em;
+}
+.action-open-repo::before { content: "📁"; }
+.action-view-release::before { content: "🏷️"; }
+.action-copy-name::before { content: "📋"; }
+.action-copy-ai-desc::before { content: "✍️"; }
+
+.copy-status {
+    font-size: 0.75em;
+    color: #a3be8c;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.release-author {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+.release-author img {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 4px;
+}

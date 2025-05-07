@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Release Info for Gmail (AI Advanced)",
+  "version": "0.4.0",
+  "description": "Shows GitHub project info, AI-generated Polish descriptions, detected environments/technologies, actions, and more for release notification emails in Gmail.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://api.github.com/*",
+    "https://api.openai.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["tooltip.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "GitHub Release Info (AI Advanced)"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
